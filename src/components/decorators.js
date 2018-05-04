@@ -49,13 +49,13 @@ Header.propTypes = {
 @Radium
 class Container extends React.Component {
   componentDidMount() {
-    document.getElementById('#container').addEventListener(
+    document.getElementById('container').addEventListener(
       'contextmenu', this.props.onContextMenu
     );
   }
 
   componentWillUnmount() {
-    document.getElementById('#container').removeEventListener(
+    document.getElementById('container').removeEventListener(
       'contextmenu', this.props.onContextMenu
     );
   }
