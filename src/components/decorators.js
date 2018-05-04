@@ -50,7 +50,7 @@ Header.propTypes = {
 class Container extends React.Component {
   render() {
     const {
-      style, decorators, terminal, onClick, node, customProps
+      style, decorators, terminal, onClick, node, customProps, onHeaderClick
     } = this.props;
 
     return (
@@ -62,7 +62,7 @@ class Container extends React.Component {
         <decorators.Header
           node={node}
           style={style.header}
-          onClick={onClick}
+          onClick={onHeaderClick}
           {...customProps}
         />
       </div>
