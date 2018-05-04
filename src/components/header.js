@@ -38,7 +38,6 @@ class NodeHeader extends React.Component {
         node={node}
         onClick={onClick}
         onToggle={this.props.onToggle}
-        onContextMenu={this.props.onContextMenu}
         style={headerStyles}
         terminal={terminal}
         customProps={this.props.customProps}
@@ -55,9 +54,7 @@ NodeHeader.propTypes = {
     PropTypes.bool
   ]).isRequired,
   node: PropTypes.object.isRequired,
-  onClick: PropTypes.func,
-  onToggle: PropTypes.func,
-  onContextMenu: PropTypes.func
+  onClick: PropTypes.func
 };
 
 export default NodeHeader;

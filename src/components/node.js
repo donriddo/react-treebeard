@@ -22,14 +22,6 @@ class TreeNode extends React.Component {
     }
   }
 
-  onContextMenu(e) {
-    const { node, onContextMenu } = this.props;
-
-    if (onContextMenu) {
-      onContextMenu(e, node);
-    }
-  }
-
   onToggle() {
     const { node, onToggle } = this.props;
     const { toggled } = node;
@@ -103,7 +95,6 @@ class TreeNode extends React.Component {
         node={Object.assign({}, node)}
         onClick={this.onClick}
         onToggle={this.onToggle}
-        onContextMenu={this.onContextMenu}
         style={style}
         customProps={this.props.customProps}
       />
@@ -151,12 +142,11 @@ class TreeNode extends React.Component {
   }
 
   _eventBubbles() {
-    const { onToggle, onClick, onContextMenu } = this.props;
+    const { onToggle, onClick } = this.props;
 
     return {
       onToggle,
-      onClick,
-      onContextMenu
+      onClick
     };
   }
 }
@@ -170,8 +160,7 @@ TreeNode.propTypes = {
     PropTypes.bool
   ]).isRequired,
   onToggle: PropTypes.func,
-  onClick: PropTypes.func,
-  onContextMenu: PropTypes.func
+  onClick: PropTypes.func
 };
 
 export default TreeNode;
