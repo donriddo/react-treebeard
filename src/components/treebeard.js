@@ -29,6 +29,7 @@ class TreeBeard extends React.Component {
             node={node}
             onToggle={onToggle}
             onClick={onClick}
+            onContextMenu={this.props.onContextMenu}
             customProps={this.props.customProps}
             style={style.tree.node} />
         )}
@@ -49,6 +50,7 @@ TreeBeard.propTypes = {
   ]),
   onToggle: PropTypes.func,
   onClick: PropTypes.func,
+  onContextMenu: PropTypes.func,
   decorators: PropTypes.object
 };
 

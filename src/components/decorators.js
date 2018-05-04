@@ -54,7 +54,7 @@ class Container extends React.Component {
     } = this.props;
 
     return (
-      <div onClick={onToggle}
+      <div onClick={onToggle} onContextMenu={this.props.onContextMenu}
         ref={ref => this.clickableRef = ref}
         style={style.container}>
         {!terminal ? this.renderToggle() : null}
