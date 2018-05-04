@@ -6,52 +6,56 @@ import shallowEqual from 'shallowequal';
 import deepEqual from 'deep-equal';
 
 class NodeHeader extends React.Component {
-    shouldComponentUpdate(nextProps) {
-        const props = this.props;
-        const nextPropKeys = Object.keys(nextProps);
+  shouldComponentUpdate(nextProps) {
+    const props = this.props;
+    const nextPropKeys = Object.keys(nextProps);
 
-        for (let i = 0; i < nextPropKeys.length; i++) {
-            const key = nextPropKeys[i];
-            if (key === 'animations') {
-                continue;
-            }
+    for (let i = 0; i < nextPropKeys.length; i++) {
+      const key = nextPropKeys[i];
+      if (key === 'animations') {
+        continue;
+      }
 
-            const isEqual = shallowEqual(props[key], nextProps[key]);
-            if (!isEqual) {
-                return true;
-            }
-        }
-
-        return !deepEqual(props.animations, nextProps.animations, {strict: true});
+      const isEqual = shallowEqual(props[key], nextProps[key]);
+      if (!isEqual) {
+        return true;
+      }
     }
 
-    render() {
-        const {animations, decorators, node, onClick, style} = this.props;
-        const {active, children} = node;
-        const terminal = !children;
-        const container = [style.link, active ? style.activeLink : null];
-        const headerStyles = Object.assign({container}, style);
+    return !deepEqual(props.animations, nextProps.animations, { strict: true });
+  }
 
-        return (
-            <decorators.Container animations={animations}
-                                  decorators={decorators}
-                                  node={node}
-                                  onClick={onClick}
-                                  style={headerStyles}
-                                  terminal={terminal}/>
-        );
-    }
+  render() {
+    const { animations, decorators, node, onClick, style } = this.props;
+    const { active, children } = node;
+    const terminal = !children;
+    const container = [style.link, active ? style.activeLink : null];
+    const headerStyles = Object.assign({ container }, style);
+
+    return (
+      <decorators.Container animations={animations}
+        decorators={decorators}
+        node={node}
+        onClick={onClick}
+        onToggle={this.props.onToggle}
+        style={headerStyles}
+        terminal={terminal}
+        customProps={this.props.customProps}
+      />
+    );
+  }
 }
 
 NodeHeader.propTypes = {
-    style: PropTypes.object.isRequired,
-    decorators: PropTypes.object.isRequired,
-    animations: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.bool
-    ]).isRequired,
-    node: PropTypes.object.isRequired,
-    onClick: PropTypes.func
+  style: PropTypes.object.isRequired,
+  decorators: PropTypes.object.isRequired,
+  animations: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool
+  ]).isRequired,
+  node: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
+  onToggle: PropTypes.func
 };
 
 export default NodeHeader;

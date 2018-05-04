@@ -50,11 +50,11 @@ Header.propTypes = {
 class Container extends React.Component {
   render() {
     const {
-      style, decorators, terminal, onClick, node, customProps, onHeaderClick
+      style, decorators, terminal, onClick, onToggle, node, customProps
     } = this.props;
 
     return (
-      <div onClick={onClick}
+      <div onClick={onToggle}
         ref={ref => this.clickableRef = ref}
         style={style.container}>
         {!terminal ? this.renderToggle() : null}
@@ -62,8 +62,7 @@ class Container extends React.Component {
         <decorators.Header
           node={node}
           style={style.header}
-          onClick={onHeaderClick}
-          {...customProps}
+          onClick={onClick}
         />
       </div>
     );
