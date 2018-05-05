@@ -54,7 +54,7 @@ class Container extends React.Component {
     } = this.props;
 
     return (
-      <div class="random" onClick={onToggle}
+      <div onClick={onToggle}
         ref={ref => this.clickableRef = ref}
         style={style.container}>
         {!terminal ? this.renderToggle() : null}
