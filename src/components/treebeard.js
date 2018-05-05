@@ -19,6 +19,7 @@ class TreeBeard extends React.Component {
     if (!Array.isArray(data)) {
       data = [data];
     }
+
     return (
       <ul style={style.tree.base}
         ref={ref => this.treeBaseRef = ref}>

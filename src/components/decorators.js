@@ -48,24 +48,13 @@ Header.propTypes = {
 
 @Radium
 class Container extends React.Component {
-  componentDidMount() {
-    document.getElementById('container').addEventListener(
-      'contextmenu', this.props.onContextMenu
-    );
-  }
-
-  componentWillUnmount() {
-    document.getElementById('container').removeEventListener(
-      'contextmenu', this.props.onContextMenu
-    );
-  }
   render() {
     const {
       style, decorators, terminal, onClick, onToggle, node, customProps
     } = this.props;
 
     return (
-      <div id="container" onClick={onToggle}
+      <div class="random" onClick={onToggle}
         ref={ref => this.clickableRef = ref}
         style={style.container}>
         {!terminal ? this.renderToggle() : null}
@@ -74,6 +63,7 @@ class Container extends React.Component {
           node={node}
           style={style.header}
           onClick={onClick}
+          onContextMenu={this.props.onContextMenu.bind(this)}
         />
       </div>
     );
