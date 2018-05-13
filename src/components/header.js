@@ -40,6 +40,7 @@ class NodeHeader extends React.Component {
         onToggle={this.props.onToggle}
         onContextMenu={this.props.onContextMenu}
         style={headerStyles}
+        Icon={this.props.Icon}
         terminal={terminal}
         customProps={this.props.customProps}
       />

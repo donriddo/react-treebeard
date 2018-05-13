@@ -106,6 +106,7 @@ class TreeNode extends React.Component {
         onToggle={this.onToggle}
         onContextMenu={this.onContextMenu}
         style={style}
+        Icon={this.props.Icon}
         customProps={this.props.customProps}
       />
     );

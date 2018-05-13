@@ -32,6 +32,7 @@ class TreeBeard extends React.Component {
             onClick={onClick}
             onContextMenu={this.props.onContextMenu}
             customProps={this.props.customProps}
+            Icon={this.props.Icon}
             style={style.tree.node} />
         )}
       </ul>

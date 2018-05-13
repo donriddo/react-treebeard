@@ -32,10 +32,11 @@ Toggle.propTypes = {
   style: PropTypes.object
 };
 
-const Header = ({ node, style, onClick, onContextMenu }) => {
+const Header = ({ node, style, onClick, onContextMenu, Icon }) => {
   return (
     <div onClick={onClick} onContextMenu={onContextMenu} style={style.base}>
       <div style={style.title}>
+        <Icon node={node} />
         {node.name}
       </div>
     </div>
@@ -50,7 +51,7 @@ Header.propTypes = {
 class Container extends React.Component {
   render() {
     const {
-      style, decorators, terminal, onClick, onToggle, node, customProps, onContextMenu
+      style, decorators, terminal, onClick, onToggle, node, customProps, onContextMenu, Icon
     } = this.props;
 
     return (
@@ -64,6 +65,7 @@ class Container extends React.Component {
           style={style.header}
           onClick={onClick}
           onContextMenu={onContextMenu}
+          Icon={Icon}
         />
       </div>
     );
